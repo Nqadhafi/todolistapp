@@ -2,7 +2,7 @@
 
 $todos = [];
 $files = file_get_contents('data.txt');
-$todos = unserialize($files);
+$todos = json_decode($files);
 
 if(isset($_POST['todo'])){
 
@@ -11,7 +11,8 @@ if(isset($_POST['todo'])){
         'todo' => $data,
         'status' => 0
     ];
-    file_put_contents('data.txt', serialize($todos));
+    $json_enkrip = json_encode($todos);
+    file_put_contents('data.txt',$json_enkrip);
 
 }
 

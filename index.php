@@ -20,11 +20,23 @@
     </form>
 
     <ul>
+<?php foreach ($todos as $key => $value): ?>
         <li>
-            <input type="checkbox" name="todo" id="">
-            <label for="">To Do Num 1</label>
+            <input type="checkbox" name="todo" id="" onclick="window.location.href='index.php?status=<?php echo ($value['status'] == 1) ? '0' : '1' ?>&key=<?php echo $key ?>'" <?php if($value['status'] == 1) echo 'checked'; ?>>
+            <label for="">
+                <?php 
+                if($value['status'] == 1){
+                    echo '<del>'. $value['todo'] . '</del>';
+                    
+                 } 
+                 else {
+                    echo $value['todo'];
+                 }
+                 ?>
+            </label>
             <a href="#">Delete</a>
         </li>
+        <?php endforeach; ?>
     </ul>
     </div>
     </div>

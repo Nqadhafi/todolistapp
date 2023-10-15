@@ -23,7 +23,7 @@ if (isset($_GET['hapus'])) {
 	unset($todos[$_GET['key']]);
 	saveDataTodo($todos);
 }
-
+//coba
 function saveDataTodo($todos){
 	$json_enkrip = json_encode($todos);
     file_put_contents('todo_list.txt',$json_enkrip);
